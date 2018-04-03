@@ -6,7 +6,7 @@ Created on Mon Feb 26 13:34:54 2018
 """
 
 from flask import Flask, request, render_template
-from datas import unique_carrier, variables, origin_airport_class, dest_airport_class, std_scale, sgd
+from .datas import unique_carrier, variables, origin_airport_class, dest_airport_class, std_scale, sgd
 from datetime import datetime
 import pandas as pd
 import numpy as np
@@ -98,7 +98,3 @@ def get_delay(flight_date,
     x = std_scale.transform(modelization.values)
     y = sgd.predict(x)
     return y[0]
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
